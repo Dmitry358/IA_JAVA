@@ -1,8 +1,8 @@
 services:
   - type: web
     name: ia-java
-    env: native
+    runtime: docker
     buildCommand: mvn clean package
-    startCommand: java -jar target/IA_JAVA-1.0-SNAPSHOT.jar
+    dockerfilePath: Dockerfile
+    startCommand: ""
     plan: free
-    autoDeploy: true
