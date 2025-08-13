@@ -3,6 +3,6 @@ services:
     name: ia-java
     env: native
     buildCommand: mvn clean package
-    startCommand: java -jar target/java-render-html-1.0-SNAPSHOT.jar
+    startCommand: java -jar target/IA_JAVA-1.0-SNAPSHOT.jar
     plan: free
     autoDeploy: true
