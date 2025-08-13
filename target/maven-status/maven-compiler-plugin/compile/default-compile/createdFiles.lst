@@ -1,4 +1,4 @@
+com\example\webapp\HuggingFaceClient.class
 com\example\webapp\ServletConfig.class
-com\example\EchoServlet.class
 com\example\webapp\ProcessServlet.class
 com\example\webapp\WebAppApplication.class

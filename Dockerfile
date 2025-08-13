@@ -1,5 +1,17 @@
-FROM eclipse-temurin:17-jdk-alpine
+# Usa immagine ufficiale Java come base
+FROM eclipse-temurin:17-jdk
+
+# Imposta directory di lavoro
 WORKDIR /app
-COPY target/IA_JAVA-1.0-SNAPSHOT.jar app.jar
+
+# Copia file Maven
+COPY . .
+
+# Costruisci il JAR con Maven
+RUN ./mvnw clean package -DskipTests
+
+# Espone porta 8080
 EXPOSE 8080
-CMD ["java", "-jar", "app.jar"]
+
+# Comando per avviare l'app
+CMD ["java", "-jar", "target/webapp-1.0.jar"]

@@ -23,6 +23,12 @@
             <version>${spring.boot.version}</version>
         </dependency>
         <!-- Servlet API (provided by Spring Boot) -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20231013</version>
+        </dependency>
+
     </dependencies>
 
     <build>
