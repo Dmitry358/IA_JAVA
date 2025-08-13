@@ -16,6 +16,11 @@ public class HuggingFaceClient {
   private static final String MODEL_URL = "https://api-inference.huggingface.co/models/Helsinki-NLP/opus-mt-en-ru";
 
   public static String processText(String inputText) {
+    if (API_TOKEN == null || API_TOKEN.isBlank()) {
+      System.err.println("Errore: HUGGINGFACE_TOKEN non trovato nelle variabili d'ambiente.");
+      return "Token mancante. Controlla le variabili d'ambiente su Render.";
+    }
+
     String inputJson = "{\"inputs\": \"" + inputText + "\"}";
 
     try {
