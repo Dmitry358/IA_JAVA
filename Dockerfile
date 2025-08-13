@@ -1,17 +1,17 @@
-# Usa immagine ufficiale Java come base
-FROM eclipse-temurin:17-jdk
+# Stage 1: Build con Maven
+FROM maven:3.8.5-eclipse-temurin-17 AS build
 
-# Imposta directory di lavoro
+WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
+
+# Stage 2: Runtime più leggero
+FROM eclipse-temurin:17-jdk
 WORKDIR /app
 
-# Copia file Maven
-COPY . .
+# Copia solo il JAR generato
+COPY --from=build /app/target/*.jar app.jar
 
-# Costruisci il JAR con Maven
-RUN ./mvnw clean package -DskipTests
-
-# Espone porta 8080
 EXPOSE 8080
 
-# Comando per avviare l'app
-CMD ["java", "-jar", "target/webapp-1.0.jar"]
+CMD ["java", "-jar", "app.jar"]

@@ -8,7 +8,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class HuggingFaceClient {
-  private static final String API_TOKEN = "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";
+
+  // ✅ Recupera il token da una variabile d'ambiente
+  private static final String API_TOKEN = System.getenv("HUGGINGFACE_TOKEN");
+
+  // URL del modello
   private static final String MODEL_URL = "https://api-inference.huggingface.co/models/Helsinki-NLP/opus-mt-en-ru";
 
   public static String processText(String inputText) {
@@ -34,7 +38,6 @@ public class HuggingFaceClient {
           response.append(line.trim());
         }
 
-        // Parsing corretto del JSON
         JSONArray jsonArray = new JSONArray(response.toString());
         if (jsonArray.length() > 0) {
           JSONObject firstObject = jsonArray.getJSONObject(0);

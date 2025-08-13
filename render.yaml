@@ -2,7 +2,5 @@ services:
   - type: web
     name: ia-java
     runtime: docker
-    buildCommand: mvn clean package
     dockerfilePath: Dockerfile
-    startCommand: ""
     plan: free
