@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Echo App</title>
+</head>
+<body>
+<h2>Inserisci testo:</h2>
+<input type="text" id="inputField" />
+<button onclick="sendText()">Invia</button>
+<br><br>
+<textarea id="outputArea" rows="5" cols="40"></textarea>
+
+<script>
+    function sendText() {
+        const input = document.getElementById("inputField").value;
+
+        fetch("/echo", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: "userInput=" + encodeURIComponent(input)
+        })
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("outputArea").value = data;
+        });
+    }
+</script>
+</body>
+</html>
