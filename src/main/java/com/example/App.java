@@ -25,7 +25,7 @@ public class App {
                     <html>
                     <head><title>Render + Java</title></head>
                     <body>
-                        <h1 style="background-color: red;">JJJJJJJJJJJJJJJJJJ</h1>
+                        <h1 style="background-color: red;">AAAAAAAAAAAAAAAAAAAA</h1>
                         <p>Pagina HTML servita da un'app Maven su Render.com.</p>
                     </body>
                     </html>
