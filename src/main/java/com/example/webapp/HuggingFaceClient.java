@@ -36,6 +36,7 @@ public class HuggingFaceClient {
       connection.setRequestMethod("POST");
       connection.setRequestProperty("Authorization", "Bearer " + API_TOKEN);
       connection.setRequestProperty("Content-Type", "application/json");
+      connection.setRequestProperty("Accept", "application/json");
       connection.setDoOutput(true);
 
       // Invia il JSON nel body della richiesta
